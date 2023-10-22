@@ -18,32 +18,32 @@ export const PEOPLE_URL = [
 // FEATURES SECTION
 export const FEATURES = [
   {
-    title: 'Real maps can be offline',
-    icon: '/map.svg',
-    variant: 'green',
-    description:
-      'We provide a solution for you to be able to use our application when climbing, yes offline maps you can use at any time there is no signal at the location',
-  },
-  {
-    title: 'Set an adventure schedule',
+    title: 'Event Discovery and Registration',
     icon: '/calendar.svg',
     variant: 'green',
     description:
-      "Schedule an adventure with friends. On holidays, there are many interesting offers from Hilink. That way, there's no more discussion",
+      'Our platform offers a comprehensive database of upcoming college events, making it easy for students from across the country or city to discover and register for events that align with their interests.',
   },
   {
-    title: 'Technology using augment reality',
-    icon: '/tech.svg',
+    title: 'Hackathon Hub',
+    icon: '/hackathon.svg',
     variant: 'green',
     description:
-      'Technology uses augmented reality as a guide to your hiking trail in the forest to the top of the mountain. Already supported by the latest technology without an internet connection',
+      "We serve as a dedicated hub for hackathons, connecting organizations and colleges looking to host tech competitions with talented students eager to showcase their skills. Our platform streamlines the process of announcing hackathons, allowing students to browse, register, and compete in these coding and innovation challenges.",
   },
   {
-    title: 'Many new locations every month',
-    icon: '/location.svg',
+    title: 'Networking and Collaboration',
+    icon: '/network.svg',
+    variant: 'green',
+    description:
+      'We foster a community of like-minded students, colleges, and organizations by offering networking and collaboration tools. Students can connect with peers from various institutions, colleges can promote their events to a wider audience.',
+  },
+  {
+    title: 'User-Friendly Interface and Communication',
+    icon: '/ui.svg',
     variant: 'orange',
     description:
-      'Lots of new locations every month, because we have a worldwide community of climbers who share their best experiences with climbing',
+      ' Our website features an intuitive, user-friendly interface that makes it easy for colleges and organizations to post their events or hackathons.',
   },
 ];
 
@@ -84,3 +84,15 @@ export const SOCIALS = {
     '/wordpress.svg',
   ],
 };
+
+//CARD SECTION
+
+export const CARD = [
+  {
+    title: 'Event Discovery and Registration',
+    icon: '/calendar.svg',
+    description:
+      'Our platform offers a comprehensive database of upcoming college events, making it easy for students from across the country or city to discover and register for events that align with their interests.',
+    joined: '50+ joined',
+  },
+];
