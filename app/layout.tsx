@@ -4,10 +4,13 @@ import './globals.css'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+
 export const metadata: Metadata = {
-  title: 'Travel',
-  description: 'Travel UI/UX App for Camping',
+  title: 'Scholar',
+  description: 'An event listing web application',
 }
+
+
 
 export default function RootLayout({
   children,
