@@ -1,3 +1,4 @@
+
 import React from "react";
 import Form from "../Pages/form";
 import Link from "next/link";
@@ -147,3 +148,4 @@ const Card = () => {
 };
 
 export default Card;
+

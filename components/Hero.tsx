@@ -1,7 +1,69 @@
+"use client"
+
 import Image from 'next/image'
 import Button from './Button'
 
+import { useEffect } from 'react';
+
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {auth, db} from '@/utils/firebase';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+  getDoc,
+  getDocs,
+  setDoc
+} from "firebase/firestore";
+
+
 const Hero = () => {
+
+  const [user , loading] = useAuthState(auth);
+
+  const googleProvider = new GoogleAuthProvider();
+  const GoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      const createUserDocument = async () => {
+        const userRef = doc(db, "users", user.uid);
+        const docSnapshot = await getDoc(userRef);
+
+        if (!docSnapshot.exists()) {
+          try {
+            await setDoc(userRef, {
+              uid: user.uid,
+              email: user.email,
+              name: user.displayName,
+              photoURL: user.photoURL,
+              createdAt: serverTimestamp(),
+              updatedAt: serverTimestamp(),
+            });
+          } catch (error) {
+            console.error("Error creating user document:", error);
+          }
+        }
+      };
+
+      createUserDocument();
+    }
+  }, [user]);
+
+
+
   return (
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       {/* <div className="hero-map" /> */}
@@ -21,13 +83,17 @@ const Hero = () => {
         Join our platform and unlock a world of innovation and events! Explore and participate in college events and hackathons from all over, empowering students from any campus to showcase their talents and compete in major events. Don't miss out on this opportunity to connect, create, and conquer.
         </p>
 
-        <div className="flex flex-col w-full gap-3 mt-8 sm:flex-row">
-          <Button 
+
+
+        <div className="flex flex-col w-full gap-3 sm:flex-row">
+          {user ? ('you are logged in wao') : (
+            <Button 
             type="button" 
             title="Get started" 
             variant="btn_green" 
+            onClick={GoogleLogin}
           />
-          
+
         </div>
       </div>
 
