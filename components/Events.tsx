@@ -7,9 +7,12 @@ import 'firebase/firestore'; // Import Firestore
 import {db, auth} from "../utils/firebase";
 import { collection, onSnapshot ,orderBy, query } from 'firebase/firestore';
 
+import Card from "./Card";
+
 
 type Event = {
   event_name: string;
+  id: string;
   // Add other event details as needed
 };
 
@@ -28,9 +31,11 @@ const Events = (props: Props) => {
       const eventList: Event[] = [];
       snapshot.forEach((doc) => {
         const eventData = doc.data() as Event;
+        eventData.id = doc.id;
         eventList.push(eventData);
       });
       setEvents(eventList);
+      console.log(eventList);
     });
 
     // Unsubscribe from the listener when the component unmounts
@@ -44,9 +49,13 @@ const Events = (props: Props) => {
       </div>
       
       {/* Display the events */}
-      <ul>
+      <ul className=" lg:flexCenter flex-row gap-8 ">
         {events.map((event, index) => (
-          <li key={index}>{event.event_name}</li>
+          <li>
+            <Card key={index} event={event}></Card>
+          </li>
+
+          
           // Add code to display other event details as needed
         ))}
       </ul>

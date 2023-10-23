@@ -19,6 +19,8 @@ import {
   setDoc
 } from "firebase/firestore";
 
+import Spline from '@splinetool/react-spline';
+
 
 const Hero = () => {
 
@@ -65,12 +67,14 @@ const Hero = () => {
 
 
   return (
+
     <>
-    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
+    
+    <section className=" max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       {/* <div className="hero-map" /> */}
       
 
-      <div className="relative z-20 flex flex-1 ml-20 flex-col xl:w-1/2">
+      <div className="  relative z-20 flex flex-1 ml-20 flex-col xl:w-1/2">
         {/* <Image 
           src="/camp.svg"
           alt="camp"
@@ -86,7 +90,7 @@ const Hero = () => {
 
 
 
-        {/* <div className="flex flex-col w-full gap-3 sm:flex-row">
+        <div className="flex flex-col w-full gap-3 sm:flex-row">
           {user ? ('you are logged in wao') : (
             <Button 
             type="button" 
@@ -94,7 +98,10 @@ const Hero = () => {
             variant="btn_green" 
             onClick={GoogleLogin}
           />
-        </div> */}
+
+          )}
+
+        </div>
       </div>
 
       <div className="relative flex flex-1 items-start">
@@ -120,15 +127,16 @@ const Hero = () => {
           </div>
         </div> */}
 
-        <div>
-        <Image
+        <div className=' '>
+        {/* <Image
         src="/charMain.png"
         alt='hero-main'
         width={600}
         height={600}
         className="transform -scale-x-100 mr-20"
         
-        />
+        /> */}
+        <Spline scene="https://prod.spline.design/29EN4TASRCYssAJo/scene.splinecode" />
       </div>
 
       </div>
