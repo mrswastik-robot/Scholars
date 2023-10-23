@@ -65,6 +65,7 @@ const Hero = () => {
 
 
   return (
+    <>
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       {/* <div className="hero-map" /> */}
       
@@ -85,7 +86,7 @@ const Hero = () => {
 
 
 
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
+        {/* <div className="flex flex-col w-full gap-3 sm:flex-row">
           {user ? ('you are logged in wao') : (
             <Button 
             type="button" 
@@ -93,8 +94,7 @@ const Hero = () => {
             variant="btn_green" 
             onClick={GoogleLogin}
           />
-
-        </div>
+        </div> */}
       </div>
 
       <div className="relative flex flex-1 items-start">
@@ -133,6 +133,7 @@ const Hero = () => {
 
       </div>
     </section>
+    </>
   )
 }
 

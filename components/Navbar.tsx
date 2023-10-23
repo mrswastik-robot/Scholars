@@ -1,74 +1,35 @@
-"use client"
+'use client'
 
-import { useState } from "react"
+import React from 'react'
+import { Link} from 'react-scroll'
 
-import { NAV_LINKS } from "@/constants"
-import Image from "next/image"
-import Link from "next/link"
-import Button from "./Button"
-
-import {auth, db} from '@/utils/firebase';
-import {useAuthState} from 'react-firebase-hooks/auth';
-
-const Navbar = () => {
-
-  const [user , loading] = useAuthState(auth);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleSignout = () => {
-    auth.signOut(); // Sign out the user when the "Signout" button is clicked
-  };
-
-
+function Navbar() {
   return (
-    <nav className="flexBetween max-container padding-container relative z-30 py-5">
-      <Link href="/">
-        <Image src="/scholar.svg" alt="logo" width={104} height={49} />
-      </Link>
-
-      <ul className="hidden h-full gap-12 lg:flex">
-        {NAV_LINKS.map((link) => (
-          <Link href={link.href} key={link.key} className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">
-            {link.label}
-          </Link>
-        ))}
-      </ul>
-
-      <div className="lg:flexCenter hidden">
-        {user ? (
-          <div onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-            <Image src={user.photoURL} alt="user.ico" width={40} height={40} className=" rounded-full"/>
-          </div>) : (
-          <Button 
-          type="button"
-          title="Login"
-          icon="/user.svg"
-          variant="btn_green"
-        />
-
-        )}
-        {/* Dropdown menu */}
-        {isDropdownOpen && user && (
-          <div className="absolute right-0 mt-[6rem] bg-white p-2 rounded-xl shadow-2xl">
-            <button
-              onClick={handleSignout}
-              className="w-full text-red-600 text-center py-2 hover:font-bold"
-            >
-              Signout
-            </button>
-          </div>
-        )}
-        
-      </div>
-
-      <Image 
-        src="menu.svg"
-        alt="menu"
-        width={32}
-        height={32}
-        className="inline-block cursor-pointer lg:hidden"
-      />
+    <>
+      <nav className=''>
+        <ul className='flex flex-row space-x-12 justify-center mt-6'>
+      <li>
+        <img src="/public/scholar.svg" alt="" />
+        </li>
+      <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
+        <Link to='/'>Home</Link>
+        </li>
+      <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
+       <Link to='cards' smooth={true} duration={1000} > Events </Link>
+        </li>
+      <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
+        <Link to='about' smooth={true} duration={1000}>About</Link>
+        </li>
+      <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
+       <Link to='feature' smooth={true} duration={1000}> Features </Link>
+        </li>
+        <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
+       <Link to='newsletter' smooth={true} duration={1000}> Newsletter </Link>
+        </li>
+      <button className='bg-purple-500 p-2 rounded-2xl -mt-1 px-8 text-white hover:bg-purple-700'>Sign Up</button>
+    </ul>
     </nav>
+    </>
   )
 }
 

@@ -6,7 +6,7 @@ import Link from "next/link";
 const Card = () => {
   return (
     <>
-      <div className="mb-8 ml-36 ">
+      <div className="mb-8 ml-36" id="cards">
         <h1 className="bold-40 lg:bold-64">Events</h1>
       </div>
 
