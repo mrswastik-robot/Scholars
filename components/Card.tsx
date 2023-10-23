@@ -21,7 +21,10 @@ const Card = (props: Props) => {
 
   return (
     <>
-      
+      <div className="mb-8 ml-36" id="cards">
+        <h1 className="bold-40 lg:bold-64">Events</h1>
+      </div>
+
 
       <section className="lg:flexCenter flex-row gap-8 mt-9 ">
         {/* CARD 1 */}
