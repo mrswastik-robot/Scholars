@@ -91,7 +91,7 @@ const Hero = () => {
 
 
 
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
+        <div className="flex flex-col w-full gap-3 mt-8 sm:flex-row hover:scale-95 transition">
           {user ? ('you are logged in wao') : (
             <Button 
             type="button" 

@@ -32,7 +32,7 @@ function Navbar() {
         </li>
       
     </ul>
-    <button className='bg-[#9333EA] p-2 h-14 mt-2 rounded-full px-8 text-white hover:bg-purple-700'>Sign Up</button>
+    <button className='bg-[#9333EA] p-2 h-14 mt-2 rounded-full px-8 text-white hover:bg-purple-700 hover:scale-95 transition'>Sign Up</button>
     </nav>
    
     </>
