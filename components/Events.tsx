@@ -43,16 +43,16 @@ const Events = (props: Props) => {
   }, []); // The empty dependency array ensures this effect runs once
 
   return (
-    <div>
+    <div > 
       <div className="text-center">
-        <p className="text-3xl font-bold">Events happening around you:</p>
+        <p className="text-3xl font-bold" data-aos="fade-up-left">Events happening around you:</p>
       </div>
       
       {/* Display the events */}
       <ul className=" lg:flexCenter flex-row gap-8 ">
         {events.map((event, index) => (
           <li>
-            <Card key={index} event={event}></Card>
+            <Card key={index} event={event} ></Card>
           </li>
 
           

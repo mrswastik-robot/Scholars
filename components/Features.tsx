@@ -4,7 +4,8 @@ import React from 'react'
 
 const Features = () => {
   return (
-    <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
+    <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24" data-aos="fade-up"
+    data-aos-anchor-placement="center-bottom" ata-aos-duration="8000">
       <div className="max-container padding-container relative w-full flex justify-end">
         <div className="flex flex-1 -rotate-[14deg]  lg:min-h-[900px]">
           <Image
