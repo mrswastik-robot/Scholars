@@ -1,15 +1,25 @@
 'use client'
+import { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Camp from "@/components/Camp";
 import Card from "@/components/Card";
 import Features from "@/components/Features";
-import GetApp from "@/components/GetApp";
+
 import Hero from "@/components/Hero";
 
 import Events from "@/components/Events";
+import Newsletter from "@/components/Newsletter";
 
 
-export default function Home() {
+export default function Home({ }) {
+  useEffect(() => {
+    AOS.init({
+         duration: 2000,
+         once: true,
+       })
+ }, [])
   return (
     <>
       <Hero />
@@ -19,7 +29,7 @@ export default function Home() {
       <Events/>
       {/* <Guide /> */}
       <Features />
-      <GetApp />
+      <Newsletter/>
      
     </>
   )
