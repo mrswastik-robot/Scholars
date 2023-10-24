@@ -94,9 +94,10 @@ module.exports = {
       backgroundImage: {
         'bg-img-1': "url('/hack.webp')",
         'bg-img-2': "url('/hackathon.webp')",
-        'feature-bg': "url('/feature-bg.png')",
-        pattern: "url('/pattern.png')",
+        'feature-bg': "url('/patternx.png')",
+        'pattern': "url('/pattern.png')",
         'pattern-2': "url('/pattern-bg.png')",
+        'wood': "url('/wood.png')",
       },
       screens: {
         xs: '400px',
