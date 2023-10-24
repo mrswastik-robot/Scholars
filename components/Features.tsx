@@ -4,23 +4,24 @@ import React from 'react'
 
 const Features = () => {
   return (
-    <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24" data-aos="fade-up"
-    data-aos-anchor-placement="center-bottom" ata-aos-duration="8000">
-      <div className="max-container padding-container relative w-full flex justify-end">
+    <section className="flex-col flexCenter overflow-hidden bg-center  bg-no-repeat py-24" data-aos="fade-up"
+    data-aos-anchor-placement="center-bottom" ata-aos-duration="8000" id='feature'>
+      <div className="max-container padding-container relative bg-transparent w-full flex justify-end">
+        
         <div className="flex flex-1 -rotate-[14deg]  lg:min-h-[900px]">
           <Image
             src="/char1.png"
             alt="phone"
             width={440}
             height={1000}
-            className="feature-phone"
+            className="feature-phone "
           />
+        
         </div>
-
-        <div className="z-20 flex w-full flex-col lg:w-[60%]">
-          <div className='relative'>
+        <div className="z-20 flex w-full flex-col lg:w-[60%] bg-transparent">
+          <div className='relative' >
             
-            <h2 className="bold-40 lg:bold-64" id='feature'>Our Features</h2>
+            <h2 className="bold-40 lg:bold-64" >Our Features</h2>
           </div>
           <ul className="mt-10 grid gap-10 md:grid-cols-2 lg:mg-20 lg:gap-20">
             {FEATURES.map((feature) => (
@@ -53,7 +54,7 @@ const FeatureItem = ({ title, icon, description }: FeatureItem) => {
       <h2 className="bold-20 lg:bold-32 mt-5 capitalize">
         {title}
       </h2>
-      <p className="regular-16 mt-5 bg-white/80 text-gray-30 lg:mt-[30px] lg:bg-none">
+      <p className="regular-16 mt-5 bg-tran text-gray-30 lg:mt-[30px] lg:bg-none">
         {description}
       </p>
     </li>

@@ -41,16 +41,16 @@ function Navbar() {
 
 
       <div>
-          <ul className='flex flex-row space-x-12 justify-center mt-6'>
+          <ul className='flex flex-row space-x-12 justify-center mt-6 '>
             
             <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
               <Link to='/'>Home</Link>
               </li>
             <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
-            <Link to='cards' smooth={true} duration={1000} > Events </Link>
+              <Link to='about' smooth={true} duration={1000}>Glimpses</Link>
               </li>
             <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
-              <Link to='about' smooth={true} duration={1000}>About</Link>
+            <Link to='cards' smooth={true} duration={1000} > Events </Link>
               </li>
             <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
             <Link to='feature' smooth={true} duration={1000}> Features </Link>
