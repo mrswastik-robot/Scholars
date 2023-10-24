@@ -39,6 +39,7 @@ function Navbar() {
       </div>
       
 
+
       <div>
           <ul className='flex flex-row space-x-12 justify-center mt-6'>
             
@@ -81,7 +82,7 @@ function Navbar() {
 
           </DropdownMenu>          
           ) : (
-            <button className='bg-[#9333EA] p-2 h-14 mt-2 rounded-full px-8 text-white hover:bg-purple-700'>Sign Up</button>
+            <button className='bg-[#9333EA] p-2 h-14 mt-2 rounded-full px-8 text-white hover:bg-purple-700 hover:scale-95 transition'>Sign Up</button>
           )}
       </div>  
      
