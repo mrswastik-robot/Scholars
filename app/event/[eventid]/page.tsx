@@ -34,6 +34,20 @@ import { registerSchema } from "@/validators/register";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+
+import {auth , db} from '@/utils/firebase';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+  getDoc,
+  getDocs,
+  setDoc
+} from "firebase/firestore";
+
 type Input = z.infer<typeof registerSchema>;
 
 type Props = {
@@ -52,7 +66,12 @@ const Eventpage = ({params: {eventid}} : Props) => {
   // const eventId = searchParams.get("eventid");
   // console.log(eventId);
 
-  console.log(eventid);
+  // console.log(eventid);
+
+  const [user , loading] = useAuthState(auth);
+  // console.log(user?.uid);
+
+
   const form = useForm<Input>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -67,8 +86,70 @@ const Eventpage = ({params: {eventid}} : Props) => {
 
   // console.log(form.watch());
 
+  async function createUserDocument(data: Input) {
+    if (user) {
+      const userRef = doc(db, "AllRegistered", user.uid);
+      const docSnapshot = await getDoc(userRef);
+
+      if (!docSnapshot.exists()) {
+        try {
+          await setDoc(userRef, {
+            uid: user.uid,
+            eventId: eventid,
+            email: data.email,
+            name: data.name,
+            studentId: data.studentId,
+            year: data.year,
+            branch: data.branch,
+            college: data.college,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+          });
+        } catch (error) {
+          console.error("Error creating user document:", error);
+        }
+      }
+    }
+  }
+
+
+
+
   function onSubmit(data: Input) {
     console.log(data);
+
+    createUserDocument(data);
+
+    // useEffect(() => {
+    //   if (user) {
+    //     const createUserDocument = async () => {
+    //       const userRef = doc(db, "AllRegistered", user.uid);
+    //       const docSnapshot = await getDoc(userRef);
+    
+    //       if (!docSnapshot.exists()) {
+    //         try {
+    //           await setDoc(userRef, {
+    //             uid: user.uid,
+    //             email: data.email,
+    //             name: data.name,
+    //             studentId: data.studentId,
+    //             year: data.year,
+    //             branch: data.branch,
+    //             college: data.college,
+    //             createdAt: serverTimestamp(),
+    //             updatedAt: serverTimestamp(),
+    //           });
+    //         } catch (error) {
+    //           console.error("Error creating user document:", error);
+    //         }
+    //       }
+    //     };
+    
+    //     createUserDocument();
+    //   }
+    
+    // }, [user]);
+
   }
 
 
