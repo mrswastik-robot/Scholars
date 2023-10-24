@@ -39,11 +39,10 @@ const Card = (props: Props) => {
             />
           </div>
           <div className="px-5 pb-5">
-            <Link href="/form">
+            
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 {event.event_name}
               </h5>
-            </Link>
             <div className="flex items-center mt-2.5 mb-5">
               <span className="bg-blue-100 text-purbg-purple-500 text-xs font-semibold mr-2 px-2.5 py-2 h-8 rounded dark:bg-blue-200 dark:text-purbg-purple-500 ml-3">
                 50+ joined

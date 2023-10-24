@@ -35,7 +35,7 @@ const Events = (props: Props) => {
         eventList.push(eventData);
       });
       setEvents(eventList);
-      console.log(eventList);
+      // console.log(eventList);
     });
 
     // Unsubscribe from the listener when the component unmounts
@@ -45,7 +45,7 @@ const Events = (props: Props) => {
   return (
     <div > 
       <div className="text-center">
-        <p className="text-3xl font-bold" data-aos="fade-up-left">Events happening around you:</p>
+        <p className="text-3xl font-bold" data-aos="fade-up-left">Events happening around <span className=" dark:text-red-600">uououo</span>you:</p>
       </div>
       
       {/* Display the events */}
