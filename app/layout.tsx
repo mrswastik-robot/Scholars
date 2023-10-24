@@ -4,6 +4,8 @@ import './globals.css'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+import Providers from '@/components/ThemeProvider';
+
 
 export const metadata: Metadata = {
   title: 'Scholar',
@@ -20,11 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <main className="relative overflow-hidden">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+            <Navbar />
+            <main className="relative overflow-hidden">
+              {children}
+            </main>
+            <Footer />
+        </Providers>
+        
       </body>
     </html>
   )
