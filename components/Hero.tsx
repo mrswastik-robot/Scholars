@@ -22,6 +22,7 @@ import {
 import Spline from '@splinetool/react-spline';
 
 
+
 const Hero = () => {
 
   const [user , loading] = useAuthState(auth);
@@ -142,6 +143,7 @@ const Hero = () => {
 
       </div>
     </section>
+    
     </>
   )
 }

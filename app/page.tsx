@@ -11,6 +11,9 @@ import Hero from "@/components/Hero";
 
 import Events from "@/components/Events";
 import Newsletter from "@/components/Newsletter";
+import BackToTopButton from '@/components/BackToTopButton';
+
+
 
 
 export default function Home({ }) {
@@ -22,14 +25,19 @@ export default function Home({ }) {
  }, [])
   return (
     <>
+      
       <Hero />
       
       <Camp />
-
+      
       <Events/>
+      
       {/* <Guide /> */}
       <Features />
+      
       <Newsletter/>
+      <BackToTopButton/>
+      
      
     </>
   )

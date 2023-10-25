@@ -10,6 +10,7 @@ import { collection, onSnapshot ,orderBy, query } from 'firebase/firestore';
 import Card from "./Card";
 
 
+
 type Event = {
   event_name: string;
   id: string;
@@ -62,5 +63,6 @@ const Events = (props: Props) => {
     </div>
   );
 };
+
 
 export default Events;
