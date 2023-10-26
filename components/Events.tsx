@@ -13,6 +13,7 @@ import Card from "./Card";
 type Event = {
   event_name: string;
   id: string;
+  event_image: string;
   // Add other event details as needed
 };
 

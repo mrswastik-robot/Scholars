@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React, { useEffect , useState } from 'react'
 
 // import { useRouter } from 'next/router'
 // import { useRouter } from 'next/navigation'
@@ -47,6 +47,7 @@ import {
   getDocs,
   setDoc
 } from "firebase/firestore";
+import Image from 'next/image'
 
 type Input = z.infer<typeof registerSchema>;
 
@@ -70,6 +71,32 @@ const Eventpage = ({params: {eventid}} : Props) => {
 
   const [user , loading] = useAuthState(auth);
   // console.log(user?.uid);
+  const [eventImage , setEventImage] = useState<string>("");
+
+
+  async function fetchEventImage(eventId: string) {
+    const eventRef = doc(db, 'events', eventId); // Construct a reference to the event document
+    try {
+      const eventSnapshot = await getDoc(eventRef);
+      if (eventSnapshot.exists()) {
+        const eventData = eventSnapshot.data();
+        if (eventData) {
+          setEventImage(eventData.event_image);
+          console.log(eventImage)
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching event image:', error);
+    }
+  }
+  
+  useEffect(() => {
+    // Fetch the event image when the component mounts
+    if (eventid) {
+      fetchEventImage(eventid);
+    }
+  }, [eventid]);
+  
 
 
   const form = useForm<Input>({
@@ -151,8 +178,15 @@ const Eventpage = ({params: {eventid}} : Props) => {
   
 
   return (
+    <div>
+
+      <div className='flex  items-center justify-center mx-auto my-4'>
+        <Image src={eventImage} width={900} height={400} alt='Event' className='  rounded-lg'/>
+      </div>
+
+    
     <div className=' flex items-center justify-center h-screen'>
-       <Card className="w-[350px]">
+       <Card className="w-[660px]">
       <CardHeader>
         <CardTitle>Register</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
@@ -297,6 +331,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
     </Card>
 
     </div>
+  </div>
   )
 }
 
