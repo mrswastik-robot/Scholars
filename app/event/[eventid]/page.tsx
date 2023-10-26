@@ -66,7 +66,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
   // const eventId = searchParams.get("eventid");
   // console.log(eventId);
 
-  // console.log(eventid);
+  console.log(eventid);
 
   const [user , loading] = useAuthState(auth);
   // console.log(user?.uid);
@@ -120,38 +120,35 @@ const Eventpage = ({params: {eventid}} : Props) => {
 
     createUserDocument(data);
 
-    // useEffect(() => {
-    //   if (user) {
-    //     const createUserDocument = async () => {
-    //       const userRef = doc(db, "AllRegistered", user.uid);
-    //       const docSnapshot = await getDoc(userRef);
-    
-    //       if (!docSnapshot.exists()) {
-    //         try {
-    //           await setDoc(userRef, {
-    //             uid: user.uid,
-    //             email: data.email,
-    //             name: data.name,
-    //             studentId: data.studentId,
-    //             year: data.year,
-    //             branch: data.branch,
-    //             college: data.college,
-    //             createdAt: serverTimestamp(),
-    //             updatedAt: serverTimestamp(),
-    //           });
-    //         } catch (error) {
-    //           console.error("Error creating user document:", error);
-    //         }
-    //       }
-    //     };
-    
-    //     createUserDocument();
-    //   }
-    
-    // }, [user]);
+    // Check if a user is authenticated
+    if (user) {
+      // Create a reference to the specific event's "participants" subcollection
+      const participantsCollection = collection(
+        db,
+        'events',
+        eventid, // Assuming eventid is the ID of the event
+        'participants'
+      );
 
+      // Add a new document to the "participants" subcollection with the student's registration data
+      setDoc(doc(participantsCollection, user.uid), {
+        email: data.email,
+        name: data.name,
+        studentId: data.studentId,
+        year: data.year,
+        branch: data.branch,
+        college: data.college,
+      })
+        .then(() => {
+          console.log('Document added with ID: ', user.uid);
+        })
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+        });
+    }
   }
 
+  
 
   return (
     <div className=' flex items-center justify-center h-screen'>
