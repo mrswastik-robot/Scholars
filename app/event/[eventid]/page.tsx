@@ -48,6 +48,7 @@ import {
   setDoc
 } from "firebase/firestore";
 import Image from 'next/image'
+import EventDetailCard from '@/components/EventDetailCard'
 
 type Input = z.infer<typeof registerSchema>;
 
@@ -184,8 +185,8 @@ const Eventpage = ({params: {eventid}} : Props) => {
         <img src={eventImage} height={100}  alt='Event' className='  rounded-lg'/>
       </div>
 
-    
-    <div className=' flex col-span-4 my-9'>
+    <div className=' md:flex my-10 gap-3'>
+    <div className=' flex col-span-4'>
        <Card className="w-[760px]">
       <CardHeader>
         <CardTitle>Register</CardTitle>
@@ -333,6 +334,15 @@ const Eventpage = ({params: {eventid}} : Props) => {
     </div>
 
     {/* Event Details */}
+
+    <div className='w-full'>
+      <EventDetailCard eventid={eventid} />
+    </div>
+
+  </div>
+
+
+
   </div>
   )
 }
