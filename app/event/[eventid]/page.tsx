@@ -178,15 +178,15 @@ const Eventpage = ({params: {eventid}} : Props) => {
   
 
   return (
-    <div>
+    <div className=' max-w-7xl mx-auto'>
 
-      <div className='flex  items-center justify-center mx-auto my-4'>
-        <Image src={eventImage} width={900} height={400} alt='Event' className='  rounded-lg'/>
+      <div className='flex  items-center justify-center w-full mx-auto mt-4'>
+        <img src={eventImage} height={100}  alt='Event' className='  rounded-lg'/>
       </div>
 
     
-    <div className=' flex items-center justify-center h-screen'>
-       <Card className="w-[660px]">
+    <div className=' flex col-span-4 my-9'>
+       <Card className="w-[760px]">
       <CardHeader>
         <CardTitle>Register</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
@@ -331,6 +331,8 @@ const Eventpage = ({params: {eventid}} : Props) => {
     </Card>
 
     </div>
+
+    {/* Event Details */}
   </div>
   )
 }
