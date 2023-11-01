@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/utils/firebase';
+import Loader from './Loader';
 
 type Props = {
   eventid: string;
@@ -32,7 +33,7 @@ const EventDetailCard = (props: Props) => {
 
   if (!eventData) {
     // Loading or error handling while fetching data
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   const { event_name ,event_description, event_start_time, event_venue, event_sponsors } = eventData;
