@@ -52,7 +52,7 @@ const Events = (props: Props) => {
       {/* Display the events */}
       <ul className=" lg:flexCenter flex-row gap-8 ">
         {events.map((event, index) => (
-          <li>
+          <li className=" md:px-0 px-2">
             <Card key={index} event={event} ></Card>
           </li>
 

@@ -4,10 +4,10 @@ import Image from 'next/image'
 
 const Newsletter = () => {
   return (
-    <div className='ml-[38rem] mb-28 justify-center' data-aos="zoom-out-right"
+    <div className='items-center justify-center mx-auto' data-aos="zoom-out-right"
     data-aos-duration="15000">
-    <div className="bg-gray-800 p-4 rounded-lg w-[48rem] mb-12 justify-center items-center h-[8rem]" id='newsletter'>
-    <h2 className="text-xl font-semibold mb-2 text-white">Subscribe to Our Newsletter</h2>
+    <div className="bg-gray-800 p-4 mx-auto rounded-lg md:w-[48rem] w-[90%]  mb-12 justify-center items-center md:h-[8rem]" id='newsletter'>
+    <h2 className="text-xl font-semibold mb-2 text-center md:text-left text-white">Subscribe to Our Newsletter</h2>
     <div className="flex">
       <input
         type="email"

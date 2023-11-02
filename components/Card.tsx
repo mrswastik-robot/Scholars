@@ -23,7 +23,7 @@ const Card = (props: Props) => {
   return (
     <>
       <div className="mb-8 ml-36" id="cards" data-aos="fade-up">
-        <h1 className="bold-40 lg:bold-64" data-aos="fade-up">Events</h1>
+        {/* <h1 className="bold-40 lg:bold-64" data-aos="fade-up">Events</h1> */}
       </div>
 
 
@@ -31,7 +31,7 @@ const Card = (props: Props) => {
         {/* CARD 1 */}
 
       <Link href={`/event/${event.id}`}>
-        <div  className="hover:scale-110 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 duration-700" >
+        <div  className="md:hover:scale-110 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 duration-700" >
           <div>
             <img
               className=" rounded-t-lg"

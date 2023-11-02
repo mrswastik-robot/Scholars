@@ -21,6 +21,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 
+import MobileSidebar from './MobileSidebar';
+
+
 function Navbar() {
 
   const [user , loading] = useAuthState(auth);
@@ -28,11 +31,15 @@ function Navbar() {
   return (
     <>
     
-      <nav className='flex flex-row justify-between mx-auto max-w-7xl gap-36 mt-4' data-aos="fade-down"
+      <nav className='flex flex-row justify-between mx-auto md:max-w-7xl md:gap-36 mt-4' data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="1500">
 
-      <div>
+      <div className=' lg:hidden'>
+          <MobileSidebar />
+      </div>
+
+      <div className=' sm:block hidden'>
         <a href="/">
           <img src="/scholar.svg" alt="" className='w-24 h-24 -mt-4 hover:scale-125 transition' />
         </a>
@@ -40,7 +47,7 @@ function Navbar() {
       
 
 
-      <div>
+      <div className=' hidden lg:flex'>
           <ul className='flex flex-row space-x-12 justify-center mt-6 '>
             
             <li className='cursor-pointer hover:scale-125 transition hover:text-gray-600 hover:font-bold'>
@@ -64,7 +71,7 @@ function Navbar() {
 
 
       <div className=' flex gap-4 '>
-          <ThemeToggler className='mt-5'/>
+          <ThemeToggler className='my-auto'/>
           {user ? (
           // <Image className='rounded-full' src={user.photoURL} width={40} height={40} alt='user'/>
           <DropdownMenu>
@@ -82,7 +89,7 @@ function Navbar() {
 
           </DropdownMenu>          
           ) : (
-            <button className='bg-[#9333EA] p-2 h-14 mt-2 rounded-full px-8 text-white hover:bg-purple-700 hover:scale-95 transition'>Sign Up</button>
+            <button className='bg-[#9333EA] p-2 h-14 my-auto rounded-full px-8 text-white hover:bg-purple-700 hover:scale-95 transition'>Sign Up</button>
           )}
       </div>  
      

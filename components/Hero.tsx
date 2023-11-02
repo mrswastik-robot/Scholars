@@ -75,7 +75,7 @@ const Hero = () => {
       {/* <div className="hero-map" /> */}
       
 
-      <div className="  relative z-20 flex flex-1 ml-20 flex-col xl:w-1/2">
+      <div className="   relative z-20 flex flex-1 lg:ml-20 flex-col xl:w-1/2">
         {/* <Image 
           src="/camp.svg"
           alt="camp"
@@ -85,7 +85,7 @@ const Hero = () => {
         /> */}
 
         <h1 className="bold-52 lg:bold-88">Scholars.</h1>
-        <p className="regular-20 mt-6 text-gray-30 xl:max-w-[520px]">
+        <p className=" md:text-xl mt-6 text-gray-30 xl:max-w-[520px]">
         Join our platform and unlock a world of innovation and events! Explore and participate in college events and hackathons from all over, empowering students from any campus to showcase their talents and compete in major events. Don't miss out on this opportunity to connect, create, and conquer.
         </p>
 
@@ -128,7 +128,7 @@ const Hero = () => {
           </div>
         </div> */}
 
-        <div className=' '>
+        <div className=' sm:mx-auto overflow-hidden '>
         {/* <Image
         src="/charMain.png"
         alt='hero-main'

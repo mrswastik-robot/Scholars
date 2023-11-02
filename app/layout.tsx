@@ -23,10 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <div className='sm:block hidden'>
+          <div className=''>
             <Navbar />
           </div>
-            <main className="relative overflow-hidden">
+            <main className="">
               {children}
             </main>
             <Footer />

@@ -181,11 +181,11 @@ const Eventpage = ({params: {eventid}} : Props) => {
   return (
     <div className=' max-w-7xl mx-auto'>
 
-      <div className='flex  items-center justify-center w-full mx-auto mt-4'>
+      <div className='flex  items-center justify-center w-full mx-auto mt-5'>
         <img src={eventImage} height={100}  alt='Event' className='  rounded-lg'/>
       </div>
 
-    <div className=' md:flex my-10 gap-3'>
+    <div className=' md:flex my-9 md:gap-3 md:space-y-0 space-y-2 px-2 md:px-0'>
     <div className=' flex col-span-4'>
        <Card className="w-[760px]">
       <CardHeader>
