@@ -28,13 +28,16 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import { useToast } from '@/components/ui/use-toast'
+import { ToastAction } from "@/components/ui/toast"
+
 
 import { useForm } from "react-hook-form";
 import { registerSchema } from "@/validators/register";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {auth , db} from '@/utils/firebase';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {
@@ -74,6 +77,19 @@ const Eventpage = ({params: {eventid}} : Props) => {
   // console.log(user?.uid);
   const [eventImage , setEventImage] = useState<string>("");
 
+  const {toast} = useToast();
+
+  const googleProvider = new GoogleAuthProvider();
+  const GoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
 
   async function fetchEventImage(eventId: string) {
     const eventRef = doc(db, 'events', eventId); // Construct a reference to the event document
@@ -169,10 +185,28 @@ const Eventpage = ({params: {eventid}} : Props) => {
       })
         .then(() => {
           console.log('Document added with ID: ', user.uid);
+          toast({
+            title: "Registered successfully",
+            description: "You have been registered for the event",
+            variant: "success",
+          })
         })
         .catch((error) => {
           console.error('Error adding document: ', error);
+          toast({
+            title: "Registration failed",
+            description: "There was an error registering for the event",
+            variant: "destructive",
+          })
         });
+    }
+    else {
+      toast({
+        title: "Registration failed",
+        description: "You must be logged in to register for an event",
+        variant: "destructive",
+        action: <ToastAction altText='Login' onClick={GoogleLogin}>Login</ToastAction>
+      })
     }
   }
 
@@ -181,7 +215,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
   return (
     <div className=' max-w-7xl mx-auto'>
 
-      <div className='flex  items-center justify-center w-full mx-auto mt-5'>
+      <div className='flex  items-center justify-center w-full mx-auto mt-5 px-2 md:px-0'>
         <img src={eventImage} height={100}  alt='Event' className='  rounded-lg'/>
       </div>
 

@@ -23,10 +23,34 @@ import {
 
 import MobileSidebar from './MobileSidebar';
 
+import { toast } from './ui/use-toast';
+import { useToast } from './ui/use-toast';
+
 
 function Navbar() {
 
   const [user , loading] = useAuthState(auth);
+
+  const {toast} = useToast();
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      // If sign out is successful, show a success toast
+      toast({
+        title: "Logged out",
+        description: "You have been successfully logged out",
+        variant: "destructive", // Or whatever your success variant is
+      });
+    } catch (error) {
+      // If there's an error, show an error toast
+      toast({
+        title: "Error",
+        description: "Failed to log out",
+        variant: "destructive", // Or whatever your error variant is
+      });
+    }
+  }
 
   return (
     <>
@@ -76,7 +100,7 @@ function Navbar() {
           // <Image className='rounded-full' src={user.photoURL} width={40} height={40} alt='user'/>
           <DropdownMenu>
             <DropdownMenuTrigger>
-                <Avatar>
+                <Avatar className=' mr-1 md:mr-0'>
                   <AvatarImage src={user.photoURL!} />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
@@ -84,12 +108,12 @@ function Navbar() {
           <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className=' text-red-600' onClick={() => auth.signOut()}>Logout</DropdownMenuItem>
+                <DropdownMenuItem className=' text-red-600' onClick={handleLogout}>Logout</DropdownMenuItem>
         </DropdownMenuContent>
 
           </DropdownMenu>          
           ) : (
-            <button className='bg-[#9333EA] p-2 h-14 my-auto rounded-full px-8 text-white hover:bg-purple-700 hover:scale-95 transition'>Sign Up</button>
+            <button className='bg-[#9333EA] p-2 mr-1 md:mr-0 h-11 my-auto rounded-full px-8 text-white hover:bg-purple-700 hover:scale-95 transition'>Sign Up</button>
           )}
       </div>  
      

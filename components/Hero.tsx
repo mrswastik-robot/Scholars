@@ -20,6 +20,7 @@ import {
 } from "firebase/firestore";
 
 import Spline from '@splinetool/react-spline';
+import { toast } from './ui/use-toast';
 
 
 const Hero = () => {
@@ -32,8 +33,21 @@ const Hero = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       console.log(user);
+
+      toast({
+        title: "Account created.",
+        description: "We've created your account for you.",
+        variant: "success",
+      })
+
     } catch (error) {
       console.log(error);
+
+      toast({
+        title: "Error creating account.",
+        description: "There was an error creating your account.",
+        variant: "destructive",
+      })
       
     }
   }
@@ -128,7 +142,7 @@ const Hero = () => {
           </div>
         </div> */}
 
-        <div className=' sm:mx-auto overflow-hidden '>
+        <div className=' sm:mx-auto overflow-hidden sm:block hidden '>
         {/* <Image
         src="/charMain.png"
         alt='hero-main'

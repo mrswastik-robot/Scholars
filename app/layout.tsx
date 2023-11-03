@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 import Providers from '@/components/ThemeProvider';
+import { Toaster } from '@/components/ui/toaster';
 
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
             <main className="">
               {children}
             </main>
+            <Toaster />
             <Footer />
         </Providers>
         
