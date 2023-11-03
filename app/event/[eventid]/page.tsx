@@ -51,7 +51,9 @@ import {
   setDoc
 } from "firebase/firestore";
 import Image from 'next/image'
+
 import EventDetailCard from '@/components/EventDetailCard'
+import CommunityCard from '@/components/CommunityCard'
 
 type Input = z.infer<typeof registerSchema>;
 
@@ -357,7 +359,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
 
 
           <div className=' '>
-            <Button type="submit" className="w-full">Submit</Button>
+            <Button variant={'scholar'} type="submit" className="w-full">Submit</Button>
           </div>
 
         </form>
@@ -369,8 +371,9 @@ const Eventpage = ({params: {eventid}} : Props) => {
 
     {/* Event Details */}
 
-    <div className='w-full'>
+    <div className='w-full space-y-3'>
       <EventDetailCard eventid={eventid} />
+      <CommunityCard eventid={eventid}/>
     </div>
 
   </div>

@@ -84,7 +84,7 @@ const Hero = () => {
 
     <>
     
-    <section className=" max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row" data-aos="fade-up"
+    <section className=" max-container overflow-visible padding-container flex flex-col gap-20 py-10  md:gap-28 lg:pt-20 xl:flex-row" data-aos="fade-up"
      data-aos-duration="3000">
       {/* <div className="hero-map" /> */}
       
@@ -119,7 +119,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative flex flex-1 items-start">
+      <div className="relative flex flex-1 items-end  overflow-visible">
         {/* <div className="relative z-20 flex w-[268px] flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8">
 
            <div className="flex flex-col">
@@ -142,7 +142,7 @@ const Hero = () => {
           </div>
         </div> */}
 
-        <div className=' sm:mx-auto overflow-hidden sm:block hidden '>
+        <div className='   sm:block hidden '>
         {/* <Image
         src="/charMain.png"
         alt='hero-main'
@@ -153,6 +153,14 @@ const Hero = () => {
         /> */}
         <Spline scene="https://prod.spline.design/29EN4TASRCYssAJo/scene.splinecode" />
       </div>
+
+      <div className=' md:hidden'>
+          <img
+          src="/mbscreens-removebg.png"
+          alt='hero-main'
+          className=' w-full h-full'
+          />
+        </div>
 
       </div>
     </section>
