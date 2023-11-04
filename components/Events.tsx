@@ -8,6 +8,7 @@ import {db, auth} from "../utils/firebase";
 import { collection, onSnapshot ,orderBy, query } from 'firebase/firestore';
 
 import Card from "./Card";
+import { montserratFont } from "@/fonts/font";
 
 
 type Event = {
@@ -46,7 +47,7 @@ const Events = (props: Props) => {
   return (
     <div > 
       <div className="text-center">
-        <p className="text-3xl font-bold" data-aos="fade-up-left">Events happening around <span className=" dark:text-red-600">uououo</span>you:</p>
+        <p className={`text-3xl font-bold ${montserratFont.className}`} data-aos="fade-up-left">Events happening around you:</p>
       </div>
       
       {/* Display the events */}

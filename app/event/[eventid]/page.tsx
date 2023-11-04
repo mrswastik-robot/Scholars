@@ -55,6 +55,8 @@ import Image from 'next/image'
 import EventDetailCard from '@/components/EventDetailCard'
 import CommunityCard from '@/components/CommunityCard'
 
+import { gilroyFont } from '@/fonts/font'
+
 type Input = z.infer<typeof registerSchema>;
 
 type Props = {
@@ -225,7 +227,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
     <div className=' flex col-span-4'>
        <Card className="w-[760px]">
       <CardHeader>
-        <CardTitle>Register</CardTitle>
+        <CardTitle className={`${gilroyFont.className} text-xl`}>Register</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>

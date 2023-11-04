@@ -25,6 +25,7 @@ import {
 
 import { useToast } from './ui/use-toast';  
 import { ToastAction } from "@/components/ui/toast"
+import { gilroyFont } from '@/fonts/font';
 
 
 
@@ -118,7 +119,7 @@ const CommunityCard = (props: Props) => {
     <div>
         <Card>
             <CardHeader>
-                <CardTitle>{communityName}</CardTitle>
+                <CardTitle className={` text-xl ${gilroyFont.className}`}>{communityName} community</CardTitle>
                 <CardDescription>Join the awesome community of {communityName}</CardDescription>
             </CardHeader>
 

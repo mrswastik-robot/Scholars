@@ -65,7 +65,7 @@ function Navbar() {
 
       <div className=' sm:block hidden'>
         <a href="/">
-          <img src="/scholar.svg" alt="" className='w-24 h-24 -mt-4 hover:scale-125 transition' />
+          <img src="/scholar.svg" alt="" className='w-24 h-24  -mt-4 hover:scale-125 transition' />
         </a>
       </div>
       

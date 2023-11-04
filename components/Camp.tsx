@@ -50,7 +50,7 @@ const CampSite = ({ backgroundImage, title, subtitle, peopleJoined }: CampProps)
 const Camp = () => {
   return (
     
-    <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20" id="about" >
+    <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:pb-20 lg:pt-0 xl:mb-20" id="about" >
       <div><h2 className="bold-40 lg:bold-64 mb-10 "data-aos="fade-up-left">Glimpses</h2></div>
       <div className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]" data-aos="zoom-out"
         data-aos-duration="2000">

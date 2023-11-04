@@ -4,6 +4,8 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/utils/firebase';
 import Loader from './Loader';
 
+import { gilroyFont } from '@/fonts/font';
+
 type Props = {
   eventid: string;
 };
@@ -43,7 +45,7 @@ const EventDetailCard = (props: Props) => {
       <Card>
         <CardContent>
           <CardHeader>
-            <CardTitle>{event_name}</CardTitle>
+            <CardTitle className={`${gilroyFont.className} text-xl`}>{event_name}</CardTitle>
             <CardDescription>{event_description}</CardDescription>
           </CardHeader>
           <CardFooter>

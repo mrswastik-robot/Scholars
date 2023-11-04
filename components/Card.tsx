@@ -2,6 +2,7 @@
 import React from "react";
 import Form from "../Pages/form";
 import Link from "next/link";
+import { gilroyFont } from "@/fonts/font";
 
 type Event = {
     event_name: string;
@@ -42,7 +43,7 @@ const Card = (props: Props) => {
           </div>
           <div className="px-5 py-5">
             
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              <h5 className={`text-xl ${gilroyFont.className} font-semibold tracking-tight text-gray-900 dark:text-white`}>
                 {event.event_name}
               </h5>
             <div className="flex items-center mt-2.5 mb-5">
