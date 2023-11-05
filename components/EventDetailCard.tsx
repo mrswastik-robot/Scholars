@@ -6,6 +6,8 @@ import Loader from './Loader';
 
 import { gilroyFont } from '@/fonts/font';
 
+import {format} from 'date-fns';
+
 type Props = {
   eventid: string;
 };
@@ -39,24 +41,34 @@ const EventDetailCard = (props: Props) => {
   }
 
   const { event_name ,event_description, event_start_time, event_venue, event_sponsors } = eventData;
+  const formattedStartTime = event_start_time ? format(event_start_time.toDate(), 'MMMM d, yyyy H:mm a') : '';
 
   return (
     <div>
       <Card>
-        <CardContent>
           <CardHeader>
             <CardTitle className={`${gilroyFont.className} text-xl`}>{event_name}</CardTitle>
             <CardDescription>{event_description}</CardDescription>
           </CardHeader>
-          <CardFooter>
-            <CardTitle>Event Venue</CardTitle>
-            <CardDescription>
-              {event_venue}
-            </CardDescription>
-            <CardTitle>Sponsors</CardTitle>
-            <CardDescription>{event_sponsors.join(', ')}</CardDescription>
-          </CardFooter>
-        </CardContent>
+
+          <CardContent>
+            <div className='space-y-3 '>
+              <div className=' flex gap-3'>
+                  <CardTitle>Event Venue -</CardTitle>
+                  <CardDescription>{event_venue}</CardDescription>
+                </div>
+                <div className=' flex gap-3'>
+                  <CardTitle>Sponsors - </CardTitle>
+                  <CardDescription>{event_sponsors.join(', ')}</CardDescription>
+                </div>
+                <div className=' flex gap-3'>
+                  <CardTitle>Event Start Time - </CardTitle>
+                  <CardDescription>{formattedStartTime}</CardDescription>
+                </div>
+            </div>
+
+          </CardContent>
+          
       </Card>
     </div>
   );

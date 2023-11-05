@@ -228,7 +228,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
        <Card className="w-[760px]">
       <CardHeader>
         <CardTitle className={`${gilroyFont.className} text-xl`}>Register</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+        <CardDescription>Get registered in events in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -361,7 +361,7 @@ const Eventpage = ({params: {eventid}} : Props) => {
 
 
           <div className=' '>
-            <Button variant={'scholar'} type="submit" className="w-full">Submit</Button>
+            <Button variant={'scholar'} type="submit" className=" mt-2 w-full">Submit</Button>
           </div>
 
         </form>

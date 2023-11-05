@@ -53,7 +53,7 @@ const Card = (props: Props) => {
             </div>
             <div className="flex items-center justify-between">
               <Link
-                href="/form"
+                href={`/event/${event.id}`}
                 className="text-white bg-purple-600 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 w-full text-center dark:bg-purple-500 dark:hover:bg-purple-600 dark:focus:ring-purbg-purple-500"
               >
                 Register
