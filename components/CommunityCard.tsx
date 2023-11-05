@@ -55,6 +55,7 @@ const CommunityCard = (props: Props) => {
 
     //get the community details from eventid
     const[communityName , setCommunityName] = useState<string>('');
+    const[alreadyJoined , setAlreadyJoined] = useState<boolean>(false);     //checking if the user has already joined the community , so that we can disable the button
 
     useEffect(() => {
         const fetchCommunityDetails = async () => {
@@ -72,13 +73,33 @@ const CommunityCard = (props: Props) => {
                 
             }
         };
+
+        const checkIfUserJoined = async () => {
+            if (user) {
+                const communityRef = doc(db, 'events', eventid, 'community', user.uid);
+                const communityDoc = await getDoc(communityRef);
+                setAlreadyJoined(communityDoc.exists());
+            }
+        };
+
         fetchCommunityDetails();
-    }, [eventid]);
+        checkIfUserJoined();
+
+    }, [eventid , user]);
 
     async function joinCommunity() {
 
         if(user)
         {
+
+            if(alreadyJoined)             //return if already joined , dont't need to run the code below
+            {
+                toast({
+                    title: "Already Joined",
+                    description: "We have already enrolled you into the community",
+                })
+                return;
+            }
 
             const communityMembers = collection(db , 'events' , eventid , 'community');
 
@@ -141,7 +162,15 @@ const CommunityCard = (props: Props) => {
 
                 </div>
             
-                <Button variant={'scholar'} onClick={joinCommunity}>Join Community <img src='/network.svg' className=' ml-2 w-4 h-4 inline'/></Button>
+                <Button 
+                    variant={'scholar'} 
+                    onClick={joinCommunity}
+                    disabled={alreadyJoined}
+                    >
+                        {alreadyJoined ? "Already Joined" : "Join Community"} 
+                        <img src='/network.svg' className=' ml-2 w-4 h-4 inline'/>
+                </Button>
+
             </CardContent>
         
         </Card>
