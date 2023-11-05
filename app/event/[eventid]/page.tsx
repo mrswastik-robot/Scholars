@@ -89,8 +89,18 @@ const Eventpage = ({params: {eventid}} : Props) => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       console.log(user);
+      toast({
+        title: "Logged in successfully",
+        description: "Start registering for events",
+        variant: "success",
+      })
     } catch (error) {
       console.log(error);
+      toast({
+        title: "Login failed",
+        description: "There was an error logging in",
+        variant: "destructive",
+      })
       
     }
   }
